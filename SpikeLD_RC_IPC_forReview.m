@@ -1,5 +1,5 @@
 %% Reservoir Computing using Spiking-LD experiment code
-% N.P.Diamantopoulos, Device Technology Labs, NTT, Inc., Japan
+% N.P. Diamantopoulos, Device Technology Labs, NTT, Inc., Japan
 % last update: 2026-Oct-26
 % -------------------------------------------------------------------------
 clear; tic; clc; close all; rng(101);
