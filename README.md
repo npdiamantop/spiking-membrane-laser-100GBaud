@@ -5,7 +5,7 @@ Subject to NTT SOFTWARE LICENSE AGREEMENT.
 
 The MATLAB scripts analyze experimentally measured responses of a silicon-integrated membrane-feedback laser to 100-GBaud electrical input streams. This release covers information-processing capacity (IPC), MNIST handwritten-digit classification, and Mackey–Glass time-series prediction. The classification and time-series prediction scripts are configured for reproducing the MNIST and Mackey–Glass results, respectively. The corresponding Two-Moons and Santa Fe experimental recordings and metadata are not included in the reviewer package.
 
-## Repository contents
+### Repository contents
 
 Main script files:
 
@@ -24,11 +24,11 @@ The MNIST dataset-loading utility requires the original MNIST IDX files, while t
 
 The classification and time-series prediction scripts also contain task-specific code for Two-Moons and Santa Fe, respectively, for reference purposes. The corresponding experimental recordings and metadata are not provided, and these configurations are not supported for end-to-end reproduction in this release.
 
-## Experimental data traces and metadata access
+### Experimental data traces and metadata access
 
 Experimental oscilloscope recordings, measurement metadata, datasets, and MMSE-initialized readout parameters are not included in this repository. For manuscript verification, these files are made available separately to authorized Nature Communications editors and reviewers through restricted, time-limited NTT R&D Box access, in accordance with institutional intellectual-property and information-security requirements. Access details are provided through the editorial correspondence.
 
-## Licensing
+### Licensing
 
 The NTT-owned MATLAB source code is provided under the NTT Software License Agreement for Evaluation included with this package.
 
@@ -38,7 +38,7 @@ The NTT Software License Agreement governs the non-OSS components, while the app
 
 Public availability on GitHub does not constitute permission to use, modify, redistribute, or commercially exploit the NTT-owned software beyond the rights granted by NTT.
 
-## Software requirements
+### Software requirements
 
 - MATLAB R2023b or later is recommended for the scripts' plotting functionality ("donutchart" in the IPC script).
 - Signal Processing Toolbox for resampling, raised-cosine filter design, and spectrum analysis ("resample", "upfirdn", "rcosdesign", "periodogram").
@@ -47,7 +47,14 @@ Public availability on GitHub does not constitute permission to use, modify, red
 
 The scripts process existing measured data; they do not control the signal generator (AWG), oscilloscope, or laser hardware. No additional third-party MATLAB function files are required by the three main scripts.
 
-## Getting started
+### Tested environment
+
+- Operating system: Microsoft Windows 11 (64-bit).
+- MATLAB release tested: R2026a. MATLAB R2023b or later is recommended, but other releases have not been independently verified for this package.
+- Required toolbox: Signal Processing Toolbox.
+- Non-standard hardware: None required for offline MATLAB analysis. The experimental data were acquired using specialized photonic hardware, including the membrane feedback laser, arbitrary waveform generator, photodetector and oscilloscope.
+
+### Getting started
 
 1. Obtain the corresponding experimental-data package using the separately approved access procedure.
 2. Extract the data into the folders shown below, alongside the MATLAB scripts. Keep the original filenames and capitalization.
@@ -55,6 +62,13 @@ The scripts process existing measured data; they do not control the signal gener
 4. Examine the Command Window output and the automatically created results folder.
 
 The scripts determine input paths relative to their own ".m" file locations; you do not need to edit the base paths when the folder structure is preserved.
+
+### Installation and execution time
+
+No installation or compilation is required beyond a working MATLAB installation with the required toolbox. Download or clone the repository, place the corresponding experimental datasets in the specified directories, and run the MATLAB scripts.
+
+- **Typical setup time:** Approximately 2–5 minutes on a standard desktop computer with MATLAB already installed, excluding MATLAB installation and experimental-data downloads (estimated).
+- **Expected execution time:** Approximately a few minutes to a few hours, depending on the analysis, experimental dataset size and available computing resources (indicative estimate; not a controlled desktop benchmark). A standalone demonstration dataset is not included; the corresponding experimental data are provided separately to authorized reviewers.
 
 ### Expected directory structure
 
@@ -105,7 +119,7 @@ Run one analysis at a time:
 
 Each script starts by clearing the workspace and closing existing figures; run them sequentially rather than relying on variables from another script. Change the "par.*" settings near the start of a script only if you also have the matching measurements and metadata files. To reduce figure generation, set "plot_on = 0" at the start of the relevant script.
 
-## Analyses and expected results
+### Analyses and expected results
 
 1. Information-processing capacity (IPC)
 
@@ -146,7 +160,7 @@ Outputs: "MG_results/Results_100.0GBd_4.3mA_1.10Vpp_9nodes.mat", a timestamped "
 
 Manuscript reference: minimum NMSE approximately 0.0059, with NMSE below 0.017 through ten future samples for the reported experimental condition (Fig. 5d,f). The exact comparison should be made per prediction horizon, not solely by comparing the average NMSE printed in the Command Window.
 
-## Common issues
+### Common issues
 
 - "Missing ... input folder": Extract the data folders directly beside the ".m" files.
 - "Missing ... dataset" or "Missing ... metadata": Match filenames, capitalization, bias, drive voltage, and mask length to the script settings.
@@ -158,6 +172,6 @@ Manuscript reference: minimum NMSE approximately 0.0059, with NMSE below 0.017 t
 
 The measurements, random projection masks, synchronization positions, and applicable readout weights must correspond to the same experimental acquisition. Combining independent regenerated data with unrelated DSO recordings generally does not reproduce the reported results.
 
-## Contact and citation
+### Contact and citation
 
 For scientific questions or requests concerning the associated experimental files, please contact the corresponding author identified in the manuscript.
